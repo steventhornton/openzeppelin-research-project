@@ -19,8 +19,7 @@ Things that might help:
 
 ## Solution
 <details>
-
-    <summary>Spoiler Warning!</summary> 
+    <summary>Spoiler Warning!</summary>
     
     The `UpsidedownEngineer` contract contains a function:
 
