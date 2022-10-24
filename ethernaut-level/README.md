@@ -19,31 +19,30 @@ Things that might help:
 
 ## Solution
 <details>
-    <summary>Spoiler Warning!</summary>
-    
-    The `UpsidedownEngineer` contract contains a function:
+  <summary>Spoiler Warning!</summary>
 
-    ```solidity
-    function solve_108B1F57E(uint256 _a, uint256 _b) public payable {
-        if (_a == get_a()) {
-            uint256 sqrt = sqrt_215F58CF9(uint256(uint160(msg.sender)));
-            if (_b == sqrt) {
-                owner = msg.sender;
-            } else {
-                kill_B708A60B();
-            }
-        } else {
-            kill_B708A60B();
-        }
-    }
-    ```
-
-    that must be called with the correct input values to solve the level. Calling this function with the incorrect input will cause the contract to self-destruct.
-
-    - This function has function selector `0x12345678`.
-    - The input value for `_a` should be set to the value at storage slot `keccak256(abi.encode("The Solution is 42"))`
-    - The input value for `_b` should be set to the value of `sqrt_215F58CF9(uint256(uint160(msg.sender)))` where the  `sqrt_215F58CF9` function has function selector `0x10000001`.
+  The `UpsidedownEngineer` contract contains a function:
   
+  ```solidity
+  function solve_108B1F57E(uint256 _a, uint256 _b) public payable {
+      if (_a == get_a()) {
+          uint256 sqrt = sqrt_215F58CF9(uint256(uint160(msg.sender)));
+          if (_b == sqrt) {
+              owner = msg.sender;
+          } else {
+              kill_B708A60B();
+          }
+      } else {
+          kill_B708A60B();
+      }
+  }
+  ```
+
+  that must be called with the correct input values to solve the level. Calling this function with the incorrect input will cause the contract to self-destruct.
+
+  - This function has function selector `0x12345678`.
+  - The input value for `_a` should be set to the value at storage slot `keccak256(abi.encode("The Solution is 42"))`
+  - The input value for `_b` should be set to the value of `sqrt_215F58CF9(uint256(uint160(msg.sender)))` where the  `sqrt_215F58CF9` function has function selector `0x10000001`.
 </details>
 
 ## Factory
