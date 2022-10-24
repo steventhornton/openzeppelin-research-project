@@ -5,7 +5,7 @@ This repository contains all content related to my research project as part of t
 ## What Can We Extract from Bytecode?
 
 - Function selectors
-  - Can map to possible function names, see [Function Selectors](Miscellaneous Resources.md).
+  - Can map to possible function names, see [Function Selectors](Miscellaneous%20Resources.md#function-selectors).
   - Can we guess the input types?
 - External calls
   - Determine addresses that are called
@@ -29,5 +29,5 @@ A review of existing decompilers including a comparison of their capabilities ca
 
 ## Miscellaneous Resources
 
-Miscellaneous resources related to EVM-compatible bytecode and decompilers can be found in the [Miscellaneous Resources.md](Miscellaneous Resources.md) file.
+Miscellaneous resources related to EVM-compatible bytecode and decompilers can be found in the [Miscellaneous Resources.md](Miscellaneous%20Resources.md) file.
 
