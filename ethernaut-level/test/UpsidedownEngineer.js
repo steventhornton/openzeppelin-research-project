@@ -20,20 +20,6 @@ describe("UpsidedownEngineer contract", function () {
         expect(await contract.owner()).to.equal(owner.address);
     });
 
-    // it("Should set a to correct value", async function () {
-    //     const { contract } = await loadFixture(deployUpsidedownEngineerFixture);
-
-    //     // Get the value in the storage slot
-    //     const s1 = ethers.utils.defaultAbiCoder.encode(["string"], ["The Solution is 42"]);
-    //     const storage_slot = ethers.utils.solidityKeccak256(["bytes"], [s1]);
-    //     const a = await ethers.provider.getStorageAt(contract.address, storage_slot);
-    //     const a_bn = ethers.BigNumber.from(a);
-    //     console.log(`a: ${a_bn}`);
-
-
-    //     expect(await contract.set_a_21E47EDEE()).to.equal(a_bn);
-    // });
-
     it("sqrt_215F58CF9 should return sqrt", async function () {
         const { contract } = await loadFixture(deployUpsidedownEngineerFixture);
         expect(await contract.sqrt_215F58CF9(9)).to.equal(3);
@@ -47,10 +33,9 @@ describe("UpsidedownEngineer contract", function () {
         expect(await contract.owner()).to.equal(ethers.constants.AddressZero);
     })
 
-    it("setOwner should destruct contract when not called by owner", async function () {
+    it("setOwner should revert when not called by owner", async function () {
         const { contract, owner, addr1 } = await loadFixture(deployUpsidedownEngineerFixture);
-        await contract.connect(addr1).setOwner(addr1.address);
-        expect(await ethers.provider.getCode(contract.address)).to.equal('0x');
+        await expect(contract.connect(addr1).setOwner(addr1.address)).to.be.reverted;
     })
 
     it("isOwner should return true", async function () {
@@ -58,25 +43,22 @@ describe("UpsidedownEngineer contract", function () {
         expect(await contract.isOwner()).is.true;
     })
 
-    it("kill_B708A60B should self destruct the contract", async function () {
+    it("revert_BE8EEEAA should revert", async function () {
         const { contract } = await loadFixture(deployUpsidedownEngineerFixture);
-        await contract.kill_B708A60B();
-        expect(await ethers.provider.getCode(contract.address)).to.equal('0x');
+        await expect(contract.revert_BE8EEEAA()).to.be.reverted;
     })
 
-    it("set_a_21E47EDEE should self destruct the contract", async function () {
+    it("set_a_21E47EDEE should revert", async function () {
         const { contract, owner, addr1 } = await loadFixture(deployUpsidedownEngineerFixture);
-        await contract.connect(addr1).set_a_21E47EDEE(0);
-        expect(await ethers.provider.getCode(contract.address)).to.equal('0x');
+        await expect(contract.connect(addr1).set_a_21E47EDEE(0)).to.be.reverted;
     })
 
-    it("solve_108B1F57E should self destruct the contract when called with improper age", async function () {
+    it("solve_108B1F57E should revert when called with improper age", async function () {
         const { contract, owner, addr1 } = await loadFixture(deployUpsidedownEngineerFixture);
-        await contract.connect(addr1).solve_108B1F57E(0, 0);
-        expect(await ethers.provider.getCode(contract.address)).to.equal('0x');
+        await expect(contract.connect(addr1).solve_108B1F57E(0, 0)).to.be.reverted;
     })
 
-    it("solve_108B1F57E should self destruct the contract when called with improper b value", async function () {
+    it("solve_108B1F57E should revert when called with improper b value", async function () {
         const { contract, owner, addr1 } = await loadFixture(deployUpsidedownEngineerFixture);
 
         // Get the value in the storage slot
@@ -84,8 +66,8 @@ describe("UpsidedownEngineer contract", function () {
         const storage_slot = ethers.utils.solidityKeccak256(["bytes"], [s1]);
         const age = await ethers.provider.getStorageAt(contract.address, storage_slot);
 
-        await contract.connect(addr1).solve_108B1F57E(age, 0);
-        expect(await ethers.provider.getCode(contract.address)).to.equal('0x');
+
+        await expect(contract.connect(addr1).solve_108B1F57E(age, 0)).to.be.reverted;
     })
 
     it("solve_108B1F57E should set owner to msg.sender when ", async function () {

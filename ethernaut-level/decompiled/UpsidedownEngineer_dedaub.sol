@@ -1,7 +1,8 @@
 // Decompiled by library.dedaub.com
-// 2022.10.24 18:15 UTC
+// 2022.10.25 13:27 UTC
 
 // Data structures and variables inferred from the use of storage instructions
+uint256 _fallback; // STORAGE[0x1]
 uint256 _isOwner; // STORAGE[0x0] bytes 0 to 19
 
 
@@ -13,7 +14,7 @@ function isOwner() public nonPayable {
     return msg.sender == _isOwner;
 }
 
-function 0x183(uint256 varg0) private { 
+function 0x36a(uint256 varg0) private { 
     v0 = v1 = 0;
     if (varg0 <= 3) {
         if (varg0) {
@@ -40,16 +41,36 @@ function 0x183(uint256 varg0) private {
 }
 
 function () public payable { 
-    selfdestruct(msg.sender);
+    require(_fallback <= ~1, Panic(17));
+    _fallback = _fallback + 1;
+    if (_fallback) {
+        if (1 != _fallback) {
+            if (2 != _fallback) {
+                if (3 == _fallback) {
+                }
+            }
+        }
+    }
+    revert(Error('Try decompiling the contract'));
 }
 
 function 0x10000000() public nonPayable { 
-    selfdestruct(msg.sender);
+    require(_fallback <= ~1, Panic(17));
+    _fallback = _fallback + 1;
+    if (_fallback) {
+        if (1 != _fallback) {
+            if (2 != _fallback) {
+                if (3 == _fallback) {
+                }
+            }
+        }
+    }
+    revert(Error('Try decompiling the contract'));
 }
 
 function 0x10000001(uint256 varg0) public nonPayable { 
     require(msg.data.length - 4 >= 32);
-    v0 = 0x183(varg0);
+    v0 = 0x36a(varg0);
     return v0;
 }
 
@@ -57,25 +78,42 @@ function 0x10000003(uint256 varg0) public nonPayable {
     require(msg.data.length - 4 >= 32);
     if (msg.sender == _isOwner) {
         STORAGE[keccak256(32, 18, 'The Solution is 42')] = varg0;
-        goto 0x7f0xc7;
+        exit;
     } else {
-        selfdestruct(msg.sender);
+        require(_fallback <= ~1, Panic(17));
+        _fallback = _fallback + 1;
+        if (_fallback) {
+            if (1 != _fallback) {
+                if (2 != _fallback) {
+                    if (3 == _fallback) {
+                    }
+                }
+            }
+        }
+        revert(Error('No more hints'));
     }
 }
 
 function 0x12345678(uint256 varg0, uint256 varg1) public payable { 
     require(msg.data.length - 4 >= 64);
-    if (varg0 != STORAGE[keccak256(32, 18, 'The Solution is 42')]) {
-        selfdestruct(msg.sender);
-    } else {
-        v0 = 0x183(msg.sender);
-        if (varg1 != v0) {
-            selfdestruct(msg.sender);
-        } else {
+    if (varg0 == STORAGE[keccak256(32, 18, 'The Solution is 42')]) {
+        v0 = 0x36a(msg.sender);
+        if (varg1 == v0) {
             _isOwner = msg.sender;
             exit;
         }
     }
+    require(_fallback <= ~1, Panic(17));
+    _fallback = _fallback + 1;
+    if (_fallback) {
+        if (1 != _fallback) {
+            if (2 != _fallback) {
+                if (3 == _fallback) {
+                }
+            }
+        }
+    }
+    revert(Error('Try decompiling the contract'));
 }
 
 function setOwner(address varg0) public nonPayable { 
@@ -85,7 +123,17 @@ function setOwner(address varg0) public nonPayable {
         _isOwner = varg0;
         exit;
     } else {
-        selfdestruct(msg.sender);
+        require(_fallback <= ~1, Panic(17));
+        _fallback = _fallback + 1;
+        if (_fallback) {
+            if (1 != _fallback) {
+                if (2 != _fallback) {
+                    if (3 == _fallback) {
+                    }
+                }
+            }
+        }
+        revert(Error('Try decompiling the contract'));
     }
 }
 

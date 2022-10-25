@@ -5,11 +5,7 @@ async function main() {
     const [deployer] = await ethers.getSigners();
 
     const UpsidedownEngineer = await ethers.getContractFactory("UpsidedownEngineer");
-    const contract = UpsidedownEngineer.attach("0x6cf3cab421683c16d31c2d06af2dedee137e493d");
-
-    // Deploy an instance of the UpsidedownEngineer contract
-    // let tx = await contract.deploy();
-    // await tx.wait(5);
+    const contract = UpsidedownEngineer.attach("0x982506719872fd56fc76256c728001ff425b15dc");
 
     const address_uint = ethers.BigNumber.from(deployer.address);
     const address_uint_sqrt = await contract.sqrt_215F58CF9(address_uint);

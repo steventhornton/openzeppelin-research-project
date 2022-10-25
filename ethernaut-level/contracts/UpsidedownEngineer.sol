@@ -7,6 +7,7 @@ pragma solidity ^0.8.0;
 contract UpsidedownEngineer {
 
     address public owner;
+    uint256 num_reverts;
 
     constructor() {
         owner = msg.sender;
@@ -16,11 +17,11 @@ contract UpsidedownEngineer {
     }
 
     receive() external payable {
-        kill_B708A60B();
+        revert_BE8EEEAA();
     }
 
     fallback() external {
-        kill_B708A60B();
+        revert_BE8EEEAA();
     }
 
     /// PUBLIC FUNCTIONS
@@ -30,7 +31,7 @@ contract UpsidedownEngineer {
     /// @param _newOwner The address of the new owner
     function setOwner(address _newOwner) public {
         if (msg.sender != owner) {
-            kill_B708A60B();
+            revert_BE8EEEAA();
         } else {
             owner = _newOwner;
         }
@@ -42,10 +43,21 @@ contract UpsidedownEngineer {
         return owner == msg.sender;
     }
 
-    /// @notice Self destruct the contract and send any ETH to msg.sender
+    /// @notice Revert with a message that provides a hint.
     /// @dev This function has function selector: 0x10000000
-    function kill_B708A60B() public {
-        selfdestruct(payable(msg.sender));
+    function revert_BE8EEEAA() public {
+        num_reverts += 1;
+        if (num_reverts == 0) {
+            revert("Try decompiling the contract");
+        } else if (num_reverts == 1) {
+            revert("Etherscan has a built in decompiler");
+        } else if (num_reverts == 2) {
+            revert("Try out https://library.dedaub.com/decompile");
+        } else if (num_reverts == 3) {
+            revert("Try to find out what storage slot the solution is stored in");
+        } else {
+            revert("No more hints");
+        }
     }
 
     /// @notice Compute the square-root of the input value
@@ -71,7 +83,7 @@ contract UpsidedownEngineer {
     /// @dev This function has function selector: 0x10000002
     function set_a_21E47EDEE(uint256 a) public {
         if (msg.sender != owner) {
-            kill_B708A60B();
+            revert_BE8EEEAA();
         } else {
             set_a(a);
         }
@@ -88,10 +100,10 @@ contract UpsidedownEngineer {
             if (_b == sqrt) {
                 owner = msg.sender;
             } else {
-                kill_B708A60B();
+                revert_BE8EEEAA();
             }
         } else {
-            kill_B708A60B();
+            revert_BE8EEEAA();
         }
     }
 
