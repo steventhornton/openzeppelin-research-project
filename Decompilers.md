@@ -9,11 +9,16 @@ This document contains details and a comparison of existing EVM bytecode decompi
 - [JEB](https://www.pnfsoftware.com/jeb/evm)
 - [Yasold](https://github.com/ajlopez/Yasold)
 
+> **TL;DR: Use Elipmoc/Gigahorse**
+
 ## Details
 
-### Dedaub
+### Elipmoc/Gigahorse (Dedaub)
 
-- TODO
+- https://yanniss.github.io/elipmoc-oopsla22.pdf
+- Identifies both public and private functions
+- Argument inference (number of args and types)
+- https://github.com/nevillegrech/gigahorse-toolchain
 
 ### Ethervm
 
@@ -25,7 +30,8 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 ### Panoramix
 
-- TODO
+- Used by Etherscan
+- Outputs Python (Vyper) code
 
 ### Porosity
 
@@ -35,12 +41,12 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 ## Comparison
 
-| Decompiler                                        | Open Source |
-| ------------------------------------------------- | ----------- |
-| [Dedaub](https://library.dedaub.com/decompile)    | No          |
-| [Ethervm](https://ethervm.io/decompile)           |             |
-| [JEB](https://www.pnfsoftware.com/jeb/evm)        |             |
-| [Porosity](https://github.com/msuiche/porosity)   |             |
-| [Panoramix](https://github.com/palkeo/panoramix ) |             |
-| [Yasold](https://github.com/ajlopez/Yasold)       |             |
+| Decompiler                                        | Open Source | Function Selector Mapping | Argument Infrence | Private Functions |
+| ------------------------------------------------- | ----------- | ------------------------- | ----------------- | ----------------- |
+| [Dedaub](https://library.dedaub.com/decompile)    | Yes         |                           |                   |                   |
+| [Ethervm](https://ethervm.io/decompile)           |             |                           |                   |                   |
+| [JEB](https://www.pnfsoftware.com/jeb/evm)        |             |                           |                   |                   |
+| [Porosity](https://github.com/msuiche/porosity)   |             |                           |                   |                   |
+| [Panoramix](https://github.com/palkeo/panoramix ) |             |                           |                   |                   |
+| [Yasold](https://github.com/ajlopez/Yasold)       |             |                           |                   |                   |
 
