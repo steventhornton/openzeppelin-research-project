@@ -15,6 +15,15 @@ This repository contains all content related to my research project as part of t
 - Decompile
   - Typically results in messy code, often fails
 
+## Applications
+
+- Early identification of potentially malicious contracts
+  - Funded from Tornado Cash
+  - Contains code that would interact with clients contract
+  - Contains code that executes a flash loan
+  - Build Forta bot to generate alert if suspicious contract is deployed
+  - See: https://twitter.com/plotchy/status/1541816411248549888
+
 ## Ethernaut Level
 
 An Ethernaut level has been developed that only provides the player with the deployed bytecode. The player needs to decompile the bytecode to determine how to beat the level. Full details can be found under the [ethernaut-level](ethernaut-level) directory.
