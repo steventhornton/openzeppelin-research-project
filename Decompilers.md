@@ -26,7 +26,7 @@ This document contains details and a comparison of existing EVM bytecode decompi
 - https://yanniss.github.io/elipmoc-oopsla22.pdf
 - https://yanniss.github.io/gigahorse-icse19.pdf
 
-#### Features
+#### Notes
 
 - Identifies both public and private functions
 - Maps public function signatures to function names
@@ -55,7 +55,7 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 - https://www.pnfsoftware.com/jeb/evm
 
-#### Features
+#### Notes
 
 - Closed source
 - Demo version available for free, pro version available for $1,800/user/year.
@@ -72,7 +72,7 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 - 
 
-#### Features
+#### Notes
 
 - Used by Etherscan
 - Outputs Python-like code
@@ -92,7 +92,7 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 - https://github.com/msuiche/porosity/blob/master/defcon2017/dc25-msuiche-Porosity-Decompiling-Ethereum-Smart-Contracts-wp.pdf
 
-#### Features
+#### Notes
 
 - Unmaintained
 
@@ -102,7 +102,13 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 - https://github.com/usyd-blockchain/vandal
 
+#### Research Articles
+
 https://arxiv.org/abs/1809.03981
+
+#### Notes
+
+- Unmaintained
 
 ### Yasold
 
@@ -110,7 +116,7 @@ https://arxiv.org/abs/1809.03981
 
 - https://github.com/msuiche/porosity
 
-#### Features
+#### Notes
 
 - Unmaintained
 
@@ -120,8 +126,8 @@ https://arxiv.org/abs/1809.03981
 | ------------------------------------------------- | ------------- | ----------- | ------------------------- | ------------------ | ----------------- | --------------- | ---------------------------------------------- |
 | [Dedaub](https://library.dedaub.com/decompile)    | Oct. 25, 2022 | Partially   | Yes                       | Yes                | Yes               | Yes             | No                                             |
 | [Ethervm](https://ethervm.io/decompile)           | Dec. 8, 2021  | No          | Yes                       | No                 | Yes               | `LOG` only      | Timeout                                        |
-| [JEB](https://www.pnfsoftware.com/jeb/evm)        | Mar. 8, 2022  | No          | Yes                       | No                 |                   | Yes             |                                                |
-| [Porosity](https://github.com/msuiche/porosity)   | Jan. 9, 2019  | Yes         | NA                        | NA                 | NA                |                 |                                                |
-| [Panoramix](https://github.com/palkeo/panoramix ) | Aug. 21, 2020 | Yes         |                           |                    |                   | `LOG` only      | Partially, in 8 minutes.                       |
-| [Yasold](https://github.com/ajlopez/Yasold)       | Nov. 8, 2020  | Yes         | NA                        | NA                 | NA                | NA              |                                                |
+| [JEB](https://www.pnfsoftware.com/jeb/evm)        | Mar. 8, 2022  | No          | Yes                       | No                 | NA                | Yes             | NA                                             |
+| [Porosity](https://github.com/msuiche/porosity)   | Jan. 9, 2019  | Yes         | NA                        | NA                 | NA                | NA              | NA                                             |
+| [Panoramix](https://github.com/palkeo/panoramix ) | Aug. 21, 2020 | Yes         | Yes                       | No                 | No                | `LOG` only      | Partially, in 8 minutes.                       |
+| [Yasold](https://github.com/ajlopez/Yasold)       | Nov. 8, 2020  | Yes         | NA                        | NA                 | NA                | NA              | NA                                             |
 
