@@ -1,27 +1,38 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+
+interface IUpsidedownEngineerFactory {
+    function hint() external returns(bytes32);
+}
+
+
 /// @title Bytecode level for Ethernaut
 /// @author Steven E. Thornton
 /// @notice The goal is to take ownership of the contract
+/// @dev This contract should only be deployed using the UpsidedownEngineerFactory contract
 contract UpsidedownEngineer {
 
     address public owner;
-    uint256 num_reverts;
+
+    address private factory;
+
+    string private hint_3;
+
+    /// EVENTS
+    event Hint(string hint);
 
     constructor() {
+        
         owner = msg.sender;
+
+        // Address of the factory contract that deployed this contract
+        factory = msg.sender;
 
         // The a value is set to the hash of the block timestamp so it is somewhat random
         set_a(uint256(keccak256(abi.encodePacked(block.timestamp))));
-    }
 
-    receive() external payable {
-        revert_BE8EEEAA();
-    }
-
-    fallback() external {
-        revert_BE8EEEAA();
+        hint_3 = "Try to find out what storage slot the solution is stored in";
     }
 
     /// PUBLIC FUNCTIONS
@@ -31,7 +42,7 @@ contract UpsidedownEngineer {
     /// @param _newOwner The address of the new owner
     function setOwner(address _newOwner) public {
         if (msg.sender != owner) {
-            revert_BE8EEEAA();
+            revert("Maybe the claimOwnership function will work");
         } else {
             owner = _newOwner;
         }
@@ -41,23 +52,6 @@ contract UpsidedownEngineer {
     /// @return true if the owner is msg.sender, false otherwise.
     function isOwner() public view returns(bool) {
         return owner == msg.sender;
-    }
-
-    /// @notice Revert with a message that provides a hint.
-    /// @dev This function has function selector: 0x10000000
-    function revert_BE8EEEAA() public {
-        num_reverts += 1;
-        if (num_reverts == 0) {
-            revert("Try decompiling the contract");
-        } else if (num_reverts == 1) {
-            revert("Etherscan has a built in decompiler");
-        } else if (num_reverts == 2) {
-            revert("Try out https://library.dedaub.com/decompile");
-        } else if (num_reverts == 3) {
-            revert("Try to find out what storage slot the solution is stored in");
-        } else {
-            revert("No more hints");
-        }
     }
 
     /// @notice Compute the square-root of the input value
@@ -77,17 +71,11 @@ contract UpsidedownEngineer {
         }
     }
 
-    /// @notice Set the `a` value. This will always cause the contract to self-destruct if called
-    /// by anyone other than the owner.
-    /// @param a Value to set `a` to
-    /// @dev This function has function selector: 0x10000002
-    function set_a_21E47EDEE(uint256 a) public {
-        if (msg.sender != owner) {
-            revert_BE8EEEAA();
-        } else {
-            set_a(a);
-        }
+    function claimOwnership() external {
+        owner = msg.sender;
+        IUpsidedownEngineerFactory(factory).hint();
     }
+
 
     /// @notice Calling this function with the correct input will set the owner to msg.sender.
     /// Calling this function with the incorrect input will cause the contract to self destruct.
@@ -100,10 +88,10 @@ contract UpsidedownEngineer {
             if (_b == sqrt) {
                 owner = msg.sender;
             } else {
-                revert_BE8EEEAA();
+                emit Hint(hint_3);
             }
         } else {
-            revert_BE8EEEAA();
+            emit Hint(hint_3);
         }
     }
 

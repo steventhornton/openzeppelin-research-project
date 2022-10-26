@@ -11,6 +11,7 @@ async function main() {
     const contract = await UpsidedownEngineerFactory.deploy();
 
     console.log("UpsidedownEngineerFactory address:", contract.address);
+    
 }
 
 main()
