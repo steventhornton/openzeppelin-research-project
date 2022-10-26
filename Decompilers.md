@@ -2,7 +2,7 @@
 
 This document contains details and a comparison of existing EVM bytecode decompilers.
 
-- [Dedaub](https://library.dedaub.com/decompile)
+- [Elipmoc/Gigahorse (Dedaub)](https://library.dedaub.com/decompile)
 - [Ethervm](https://ethervm.io/decompile)
 - [Panoramix](https://github.com/palkeo/panoramix )
 - [Porosity](https://github.com/msuiche/porosity)
@@ -39,13 +39,28 @@ This document contains details and a comparison of existing EVM bytecode decompi
 
 ### Ethervm
 
-- TODO
+#### Source
 
+- https://ethervm.io/decompile
 
+#### Features
+
+- Defines variables that are never used
+- Looks up variable names from [4byte](https://www.4byte.directory/)
+- Output is typically very long
 
 ### JEB
 
-- TODO
+#### Source
+
+- https://www.pnfsoftware.com/jeb/evm
+
+#### Features
+
+- Closed source
+- Demo version available for free, pro version available for $1,800/user/year.
+- Interface discovery (e.g. ERC20, ERC721, etc.)
+- https://www.pnfsoftware.com/blog/ethereum-smart-contract-decompiler/
 
 ### Panoramix
 
@@ -65,6 +80,7 @@ This document contains details and a comparison of existing EVM bytecode decompi
 - Max depth, may miss parts of code
 - Fork of original eveem decompiler (no longer maintained)
 - Seems to no longer be actively developed
+- Doesn't distinguish between function signatures and event signatures
 
 ### Porosity
 
@@ -90,18 +106,22 @@ https://arxiv.org/abs/1809.03981
 
 ### Yasold
 
-- TODO
+#### Source
+
+- https://github.com/msuiche/porosity
+
+#### Features
+
+- Unmaintained
 
 ## Comparison
 
-| Decompiler                                        | Last Commit  | Open Source | Function Selector Mapping | Argument Inference | Private Functions |
-| ------------------------------------------------- | ------------ | ----------- | ------------------------- | ------------------ | ----------------- |
-| [Dedaub](https://library.dedaub.com/decompile)    |              | Partially   | Yes                       | Yes                | Yes               |
-| [Ethervm](https://ethervm.io/decompile)           |              |             |                           |                    |                   |
-| [JEB](https://www.pnfsoftware.com/jeb/evm)        |              |             |                           |                    |                   |
-| [Porosity](https://github.com/msuiche/porosity)   | Jan. 9, 2019 |             |                           |                    |                   |
-| [Panoramix](https://github.com/palkeo/panoramix ) |              |             |                           |                    |                   |
-| [Yasold](https://github.com/ajlopez/Yasold)       |              |             |                           |                    |                   |
+| Decompiler                                        | Last Commit   | Open Source | Function Selector Mapping | Argument Inference | Private Functions | Event Detection | Can Decompile Compound v2 Comptroller Contract |
+| ------------------------------------------------- | ------------- | ----------- | ------------------------- | ------------------ | ----------------- | --------------- | ---------------------------------------------- |
+| [Dedaub](https://library.dedaub.com/decompile)    | Oct. 25, 2022 | Partially   | Yes                       | Yes                | Yes               | Yes             | No                                             |
+| [Ethervm](https://ethervm.io/decompile)           | Dec. 8, 2021  | No          | Yes                       | No                 | Yes               | `LOG` only      | Timeout                                        |
+| [JEB](https://www.pnfsoftware.com/jeb/evm)        | Mar. 8, 2022  | No          | Yes                       | No                 |                   | Yes             |                                                |
+| [Porosity](https://github.com/msuiche/porosity)   | Jan. 9, 2019  | Yes         | NA                        | NA                 | NA                |                 |                                                |
+| [Panoramix](https://github.com/palkeo/panoramix ) | Aug. 21, 2020 | Yes         |                           |                    |                   | `LOG` only      | Partially, in 8 minutes.                       |
+| [Yasold](https://github.com/ajlopez/Yasold)       | Nov. 8, 2020  | Yes         | NA                        | NA                 | NA                | NA              |                                                |
 
-- Decompilation type
-- Output comparison

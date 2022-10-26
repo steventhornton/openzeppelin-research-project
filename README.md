@@ -28,13 +28,13 @@ This repository contains all content related to my research project as part of t
 
 An Ethernaut level has been developed that only provides the player with the deployed bytecode. The player needs to decompile the bytecode to determine how to beat the level. Full details can be found under the [ethernaut-level](ethernaut-level) directory.
 
-## Disassembler Review
-
-A review of existing disassemblers (bytecode to opcode) can be found in the [Disassemblers.md](Disassemblers.md) file.
-
 ## Decompiler Review
 
 A review of existing decompilers including a comparison of their capabilities can be found in the [Decompilers.md](Decompilers.md) file.
+
+## Examples
+
+Example decompiler output for some simple contracts can be found under [examples](examples/). 
 
 ## Miscellaneous Resources
 
