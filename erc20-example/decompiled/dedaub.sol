@@ -1,5 +1,5 @@
 // Decompiled by library.dedaub.com
-// 2022.10.27 15:19 UTC
+// 2022.10.27 16:42 UTC
 
 // Data structures and variables inferred from the use of storage instructions
 mapping (uint256 => [uint256]) _balanceOf; // STORAGE[0x0]
@@ -13,15 +13,14 @@ Approval(address, address, uint256);
 Transfer(address, address, uint256);
 
 function transferFrom(address varg0, address varg1, uint256 varg2) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 96);
+    require(msg.data.length - 4 >= 96);
     require(varg0 == varg0);
     require(varg1 == varg1);
-    require(varg2 == varg2);
-    if (_allowance[msg.sender] != 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) {
+    if (_allowance[msg.sender] != ~0) {
         require(_allowance[msg.sender] >= varg2, Error('ERC20: insufficient allowance'));
-        0x5a7(_allowance[msg.sender] - varg2, msg.sender, varg0);
+        0x35a(_allowance[msg.sender] - varg2, msg.sender, varg0);
     }
-    0x7fc(varg2, varg1, varg0);
+    0x4f8(varg2, varg1, varg0);
     return 1;
 }
 
@@ -30,25 +29,24 @@ function decimals() public payable {
 }
 
 function increaseAllowance(address varg0, uint256 varg1) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 64);
+    require(msg.data.length - 4 >= 64);
     require(varg0 == varg0);
-    require(varg1 == varg1);
-    v0 = _SafeAdd(_allowance[varg0], varg1);
-    0x5a7(v0, varg0, msg.sender);
+    require(_allowance[varg0] <= varg1 + _allowance[varg0], Panic(17));
+    0x35a(varg1 + _allowance[varg0], varg0, msg.sender);
     return 1;
 }
 
 function balanceOf(address varg0) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 32);
+    require(msg.data.length - 4 >= 32);
     require(varg0 == varg0);
     return _balanceOf[varg0];
 }
 
 function symbol() public payable { 
-    v0 = 0xd96(_symbol.length);
+    v0 = 0x7eb(_symbol.length);
     v1 = new bytes[](v0);
     v2 = v3 = v1.data;
-    v4 = 0xd96(_symbol.length);
+    v4 = 0x7eb(_symbol.length);
     if (v4) {
         if (31 < v4) {
             do {
@@ -64,58 +62,74 @@ function symbol() public payable {
     v7 = v8 = 0;
     while (v7 < v1.length) {
         v6[v7] = v1[v7];
-        v7 = v7 + 32;
+        v7 += 32;
     }
     v6[v1.length] = 0;
     return v6;
 }
 
 function decreaseAllowance(address varg0, uint256 varg1) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 64);
+    require(msg.data.length - 4 >= 64);
     require(varg0 == varg0);
-    require(varg1 == varg1);
     require(_allowance[varg0] >= varg1, Error('ERC20: decreased allowance below zero'));
-    0x5a7(_allowance[varg0] - varg1, varg0, msg.sender);
+    0x35a(_allowance[varg0] - varg1, varg0, msg.sender);
     return 1;
 }
 
 function transfer(address varg0, uint256 varg1) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 64);
+    require(msg.data.length - 4 >= 64);
     require(varg0 == varg0);
-    require(varg1 == varg1);
-    0x7fc(varg1, varg0, msg.sender);
+    0x4f8(varg1, varg0, msg.sender);
     return 1;
 }
 
 function allowance(address varg0, address varg1) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 64);
+    require(msg.data.length - 4 >= 64);
     require(varg0 == varg0);
     require(varg1 == varg1);
     return _allowance[varg1];
 }
 
-function 0x5a7(uint256 varg0, uint256 varg1, uint256 varg2) private { 
-    require(address(varg2) - 0, Error('ERC20: approve from the zero address'));
-    require(address(varg1) - 0, Error('ERC20: approve to the zero address'));
-    v0 = address(varg2);
-    v1 = address(varg1);
-    _allowance[v1] = varg0;
-    emit Approval(address(varg2), address(varg1), varg0);
-    return ;
+function 0x35a(uint256 varg0, uint256 varg1, uint256 varg2) private { 
+    if (address(varg2)) {
+        if (address(varg1)) {
+            v0 = address(varg2);
+            v1 = address(varg1);
+            _allowance[v1] = varg0;
+            emit Approval(v0, v1, varg0);
+            return ;
+        }
+    }
+    revert(Error('ERC20: approve to the zero address', 'ERC20: approve to the zero address'));
 }
 
-function 0x7fc(uint256 varg0, uint256 varg1, uint256 varg2) private { 
-    require(address(varg2) - 0, Error('ERC20: transfer from the zero address'));
-    require(address(varg1) - 0, Error('ERC20: transfer to the zero address'));
-    v0 = address(varg2);
-    require(_balanceOf[v0] >= varg0, Error('ERC20: transfer amount exceeds balance'));
-    v1 = address(varg2);
-    _balanceOf[v1] = _balanceOf[v0] - varg0;
-    v2 = address(varg1);
-    v3 = _SafeAdd(_balanceOf[v2], varg0);
-    _balanceOf[v2] = v3;
-    emit Transfer(address(varg2), address(varg1), varg0);
-    return ;
+function 0x4f8(uint256 varg0, uint256 varg1, uint256 varg2) private { 
+    if (address(varg2)) {
+        if (address(varg1)) {
+            v0 = address(varg2);
+            if (_balanceOf[v0] >= varg0) {
+                v1 = address(varg2);
+                _balanceOf[v1] = _balanceOf[v0] - varg0;
+                v2 = address(varg1);
+                v3 = varg0 + _balanceOf[v2];
+                require(_balanceOf[v2] <= v3, Panic(17));
+                _balanceOf[v2] = v3;
+                emit Transfer(address(varg2), address(varg1), varg0);
+                return ;
+            }
+        }
+    }
+    revert(Error('ERC20: transfer amount exceeds balance'));
+}
+
+function 0x7eb(uint256 varg0) private { 
+    v0 = v1 = varg0 >> 1;
+    v2 = varg0 & 0x1;
+    if (!v2) {
+        v0 = v3 = v1 & 0x7f;
+    }
+    require(v2 - (v0 < 32), Panic(34));
+    return v0;
 }
 
 function () public payable { 
@@ -123,10 +137,10 @@ function () public payable {
 }
 
 function name() public payable { 
-    v0 = 0xd96(_name.length);
+    v0 = 0x7eb(_name.length);
     v1 = new bytes[](v0);
     v2 = v3 = v1.data;
-    v4 = 0xd96(_name.length);
+    v4 = 0x7eb(_name.length);
     if (v4) {
         if (31 < v4) {
             do {
@@ -142,34 +156,17 @@ function name() public payable {
     v7 = v8 = 0;
     while (v7 < v1.length) {
         v6[v7] = v1[v7];
-        v7 = v7 + 32;
+        v7 += 32;
     }
     v6[v1.length] = 0;
     return v6;
 }
 
 function approve(address varg0, uint256 varg1) public payable { 
-    require(4 + (msg.data.length - 4) - 4 >= 64);
+    require(msg.data.length - 4 >= 64);
     require(varg0 == varg0);
-    require(varg1 == varg1);
-    0x5a7(varg1, varg0, msg.sender);
+    0x35a(varg1, varg0, msg.sender);
     return 1;
-}
-
-function 0xd96(uint256 varg0) private { 
-    v0 = v1 = varg0 >> 1;
-    v2 = varg0 & 0x1;
-    if (!v2) {
-        v0 = v3 = v1 & 0x7f;
-    }
-    require(v2 - (v0 < 32), Panic(34));
-    return v0;
-}
-
-function _SafeAdd(uint256 varg0, uint256 varg1) private { 
-    v0 = varg0 + varg1;
-    require(varg0 <= v0, Panic(17));
-    return v0;
 }
 
 function totalSupply() public payable { 
@@ -205,7 +202,8 @@ function __function_selector__(bytes4 function_selector) public payable {
             decreaseAllowance(address,uint256);
         } else if (0xa9059cbb == function_selector >> 224) {
             transfer(address,uint256);
-        } else if (0xdd62ed3e == function_selector >> 224) {
+        } else {
+            require(0xdd62ed3e == function_selector >> 224);
             allowance(address,address);
         }
     }
