@@ -35,48 +35,48 @@ digraph{
 43[label="0x2b:DUP1
 0x2c:PUSH4 0x39509351
 0x31:EQ
-0x32:PUSH2 0x168
+0x32:PUSH2 0x123
 0x35:JUMPI"]
 43 -> 54
-43 -> 360
+43 -> 291
 54[label="0x36:DUP1
 0x37:PUSH4 0x70a08231
 0x3c:EQ
-0x3d:PUSH2 0x198
+0x3d:PUSH2 0x136
 0x40:JUMPI"]
 54 -> 65
-54 -> 408
+54 -> 310
 65[label="0x41:DUP1
 0x42:PUSH4 0x95d89b41
 0x47:EQ
-0x48:PUSH2 0x1c8
+0x48:PUSH2 0x15f
 0x4b:JUMPI"]
 65 -> 76
-65 -> 456
+65 -> 351
 76[label="0x4c:DUP1
 0x4d:PUSH4 0xa457c2d7
 0x52:EQ
-0x53:PUSH2 0x1e6
+0x53:PUSH2 0x167
 0x56:JUMPI"]
 76 -> 87
-76 -> 486
+76 -> 359
 87[label="0x57:DUP1
 0x58:PUSH4 0xa9059cbb
 0x5d:EQ
-0x5e:PUSH2 0x216
+0x5e:PUSH2 0x17a
 0x61:JUMPI"]
 87 -> 98
-87 -> 534
+87 -> 378
 98[label="0x62:DUP1
 0x63:PUSH4 0xdd62ed3e
 0x68:EQ
-0x69:PUSH2 0x246
+0x69:PUSH2 0x18d
 0x6c:JUMPI"]
 98 -> 109
-98 -> 582
-109[label="0x6d:PUSH2 0xa9
-0x70:JUMP"]
-109 -> 169
+98 -> 397
+109[label="0x6d:PUSH1 0x0
+0x6f:DUP1
+0x70:REVERT"]
 113[label="0x71:JUMPDEST
 0x72:DUP1
 0x73:PUSH4 0x6fdde03
@@ -95,35 +95,35 @@ digraph{
 136[label="0x88:DUP1
 0x89:PUSH4 0x18160ddd
 0x8e:EQ
-0x8f:PUSH2 0xfc
+0x8f:PUSH2 0xef
 0x92:JUMPI"]
 136 -> 147
-136 -> 252
+136 -> 239
 147[label="0x93:DUP1
 0x94:PUSH4 0x23b872dd
 0x99:EQ
-0x9a:PUSH2 0x11a
+0x9a:PUSH2 0x101
 0x9d:JUMPI"]
 147 -> 158
-147 -> 282
+147 -> 257
 158[label="0x9e:DUP1
 0x9f:PUSH4 0x313ce567
 0xa4:EQ
-0xa5:PUSH2 0x14a
+0xa5:PUSH2 0x114
 0xa8:JUMPI"]
 158 -> 169
-158 -> 330
+158 -> 276
 169[label="Call _fallback"]
 174[label="Call name()"]
 204[label="Call approve(address,uint256)"]
-252[label="Call totalSupply()"]
-282[label="Call transferFrom(address,address,uint256)"]
-330[label="Call decimals()"]
-360[label="Call increaseAllowance(address,uint256)"]
-408[label="Call balanceOf(address)"]
-456[label="Call symbol()"]
-486[label="Call decreaseAllowance(address,uint256)"]
-534[label="Call transfer(address,uint256)"]
-582[label="Call allowance(address,address)"]
+239[label="Call totalSupply()"]
+257[label="Call transferFrom(address,address,uint256)"]
+276[label="Call decimals()"]
+291[label="Call increaseAllowance(address,uint256)"]
+310[label="Call balanceOf(address)"]
+351[label="Call symbol()"]
+359[label="Call decreaseAllowance(address,uint256)"]
+378[label="Call transfer(address,uint256)"]
+397[label="Call allowance(address,address)"]
 
 }
