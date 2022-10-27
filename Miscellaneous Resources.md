@@ -18,6 +18,13 @@ samczsun ([@samczsun](https://twitter.com/samczsun) on Twitter) has released a f
 
 ## Tools
 
+- Mythril
+- teEther
+- EthIR
+- Vandal
+- Oyente
+- Securify
+
 ### Rattle
 
 The [rattle](https://github.com/crytic/rattle) tool developed by [Trail of Bits](https://www.trailofbits.com/) performs static analysis on EVM bytecode.
@@ -42,13 +49,18 @@ https://github.com/Jon-Becker/heimdall-rs
 
 ## Publications
 
-- Contro, F., Crosara, M., Ceccato, M., & Dalla Preda, M. (2021, May). Ethersolve: Computing an accurate control-flow graph from ethereum bytecode. In *2021 IEEE/ACM 29th International Conference on Program Comprehension (ICPC)* (pp. 127-137). IEEE.
-  - https://arxiv.org/pdf/2103.09113.pdf
-- Grech, N., Lagouvardos, S., Tsatiris, I., Smaragdakis, Y. (2022), Elipmoc: Advanced Decompilation of Ethereum Smart Contracts *Proceedings of the ACM in Programming Languages (OOPSLA).*
-  - https://yanniss.github.io/elipmoc-oopsla22.pdf
-  - https://dl.acm.org/doi/10.1145/3527321
-
 - Brent, L., Grech, N., Lagouvardos, S., Scholz, B., & Smaragdakis, Y. (2020, June). Ethainter: a smart contract security analyzer for composite vulnerabilities. In *Proceedings of the 41st ACM SIGPLAN Conference on Programming Language Design and Implementation* (pp. 454-469).
   - https://yanniss.github.io/ethainter-pldi20.pdf
   - https://www.nevillegrech.com/assets/pdf/ethainter-pldi.pdf
+
+- Brent, L., Jurisevic, A., Kong, M., Liu, E., Gauthier, F., Gramoli, V., ... & Scholz, B. (2018). Vandal: A scalable security analysis framework for smart contracts. *arXiv preprint arXiv:1809.03981*.
+  - https://arxiv.org/pdf/1809.03981.pdf
+- Contro, F., Crosara, M., Ceccato, M., & Dalla Preda, M. (2021, May). Ethersolve: Computing an accurate control-flow graph from ethereum bytecode. In *2021 IEEE/ACM 29th International Conference on Program Comprehension (ICPC)* (pp. 127-137). IEEE.
+  - https://arxiv.org/pdf/2103.09113.pdf
+
+- Grech, N., Lagouvardos, S., Tsatiris, I., Smaragdakis, Y. (2022), Elipmoc: Advanced Decompilation of Ethereum Smart Contracts *Proceedings of the ACM in Programming Languages (OOPSLA).*
+
+  - https://yanniss.github.io/elipmoc-oopsla22.pdf
+
+  - https://dl.acm.org/doi/10.1145/3527321
 
