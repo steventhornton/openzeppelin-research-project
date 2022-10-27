@@ -1,6 +1,6 @@
 # Decompiled
 
-The files in this directory contain decompiled versions of [../contracts/UpsidedownEngineer.sol](UpsidedownEngineer.sol) from various decompilers.
+The files in this directory contain decompiled versions of [UpsidedownEngineer.sol](../contracts/UpsidedownEngineer.sol) from various decompilers.
 
 The input bytecode for the compilers can be found here: [../bytecode/UpsidedownEngineer.bin-runtime](../bytecode/UpsidedownEngineer.bin-runtime).
 
