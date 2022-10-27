@@ -16,7 +16,7 @@ contract Contract {
             var var2 = 0x0075;
             var var3 = msg.data.length;
             var var4 = 0x04;
-            var2 = func_03E1(var3, var4);
+            var2 = func_03CA(var3, var4);
             var1 = func_0075(var2);
         
         label_007A:
@@ -33,7 +33,7 @@ contract Contract {
             var2 = 0x009b;
             var3 = msg.data.length;
             var4 = 0x04;
-            var2, var3 = func_03FA(var3, var4);
+            var2, var3 = func_03E3(var3, var4);
             func_009B(var2, var3);
             stop();
         } else if (var0 == 0x13af4035) {
@@ -46,7 +46,7 @@ contract Contract {
             var2 = 0x00bd;
             var3 = msg.data.length;
             var4 = 0x04;
-            var2 = func_041C(var3, var4);
+            var2 = func_0405(var3, var4);
             func_00BD(var2);
             stop();
         } else if (var0 == 0x4e71e0c8) {
@@ -91,30 +91,30 @@ contract Contract {
     
     function func_009B(var arg0, var arg1) {
         var var0 = 0x01b8;
-        var0 = func_0378();
+        var0 = func_0361();
     
-        if (arg0 != var0) {
+        if (arg0 - var0) {
             var0 = 0x7e4c830d27ef9b1819f6c1710f43e650db84477e9efee4c78342793292f56a23;
-            var var1 = 0x0258;
-            var var2 = 0x02;
+            var var1 = 0x0256;
             var var3 = memory[0x40:0x60];
-            var1 = func_0494(var2, var3);
+            var var2 = 0x02;
+            var1 = func_047E(var2, var3);
             var temp0 = memory[0x40:0x60];
             log(memory[temp0:temp0 + var1 - temp0], [stack[-2]]);
             return;
         } else {
             var0 = 0x00;
-            var1 = 0x01ca;
+            var1 = 0x01c9;
             var2 = msg.sender;
             var1 = func_0140(var2);
             var0 = var1;
         
-            if (arg1 != var0) {
+            if (arg1 - var0) {
                 var1 = 0x7e4c830d27ef9b1819f6c1710f43e650db84477e9efee4c78342793292f56a23;
-                var2 = 0x021b;
+                var2 = 0x0219;
+                var3 = 0x03;
                 var var4 = memory[0x40:0x60];
-                var3 = 0x02;
-                var2 = func_0494(var3, var4);
+                var2 = func_047E(var3, var4);
                 var temp1 = memory[0x40:0x60];
                 log(memory[temp1:temp1 + var2 - temp1], [stack[-2]]);
                 return;
@@ -127,7 +127,7 @@ contract Contract {
     
     function func_00BD(var arg0) {
         if (msg.sender == storage[0x00] & (0x01 << 0xa0) - 0x01) {
-            storage[0x00] = (arg0 & (0x01 << 0xa0) - 0x01) | (storage[0x00] & ~((0x01 << 0xa0) - 0x01));
+            storage[0x00] = (storage[0x00] & ~((0x01 << 0xa0) - 0x01)) | (arg0 & (0x01 << 0xa0) - 0x01);
             return;
         } else {
             var temp0 = memory[0x40:0x60];
@@ -150,12 +150,11 @@ contract Contract {
             var var2 = 0x015a;
             var var3 = 0x02;
             var var4 = var0;
-            var2 = func_044C(var3, var4);
-            var temp0 = var2;
+            var2 = func_0435(var3, var4);
+            var3 = var2;
             var2 = 0x0165;
-            var3 = temp0;
             var4 = 0x01;
-            var2 = func_046E(var3, var4);
+            var2 = func_0457(var3, var4);
             var1 = var2;
         
             if (var1 >= var0) {
@@ -163,27 +162,27 @@ contract Contract {
                 return var0;
             } else {
             label_0171:
-                var temp1 = var1;
-                var0 = temp1;
+                var temp0 = var1;
+                var0 = temp0;
                 var1 = var0;
                 var2 = 0x02;
                 var3 = var1;
                 var4 = 0x0180;
                 var var5 = var3;
                 var var6 = arg0;
-                var4 = func_044C(var5, var6);
-                var temp2 = var3;
+                var4 = func_0435(var5, var6);
+                var temp1 = var3;
                 var3 = 0x018a;
-                var temp3 = var4;
-                var4 = temp2;
-                var5 = temp3;
-                var3 = func_046E(var4, var5);
-                var temp4 = var2;
+                var temp2 = var4;
+                var4 = temp1;
+                var5 = temp2;
+                var3 = func_0457(var4, var5);
+                var temp3 = var2;
                 var2 = 0x0194;
-                var temp5 = var3;
-                var3 = temp4;
-                var4 = temp5;
-                var2 = func_044C(var3, var4);
+                var temp4 = var3;
+                var3 = temp3;
+                var4 = temp4;
+                var2 = func_0435(var3, var4);
                 var1 = var2;
             
                 if (var1 >= var0) { goto label_019B; }
@@ -197,39 +196,39 @@ contract Contract {
         storage[0x00] = msg.sender | (storage[0x00] & ~((0x01 << 0xa0) - 0x01));
         var temp0 = memory[0x40:0x60];
         memory[temp0:temp0 + 0x20] = 0xfbf552db << 0xe0;
-        var temp1 = memory[0x40:0x60];
+        var var3 = 0x00;
         var var0 = storage[0x01] & (0x01 << 0xa0) - 0x01;
         var var1 = 0xfbf552db;
+        var var4 = memory[0x40:0x60];
         var var2 = temp0 + 0x04;
-        var temp2;
-        temp2, memory[temp1:temp1 + 0x20] = address(var0).call.gas(msg.gas)(memory[temp1:temp1 + temp0 - temp1 + 0x04]);
-        var var3 = !temp2;
+        var var5 = temp0 - var4 + 0x04;
+        var var6 = var4;
+        var var7 = var3;
+        var var8 = var0;
+        var var9 = !address(var8).code.length;
     
-        if (!var3) {
-            var temp3 = memory[0x40:0x60];
-            var temp4 = returndata.length;
-            memory[0x40:0x60] = temp3 + (temp4 + 0x1f & ~0x1f);
-            var0 = 0x02f2;
-            var2 = temp3;
-            var1 = var2 + temp4;
-            var0 = func_053C(var1, var2);
-            return;
-        } else {
-            var temp5 = returndata.length;
-            memory[0x00:0x00 + temp5] = returndata[0x00:0x00 + temp5];
-            revert(memory[0x00:0x00 + returndata.length]);
-        }
+        if (var9) { revert(memory[0x00:0x00]); }
+    
+        var temp1;
+        temp1, memory[var4:var4 + var3] = address(var8).call.gas(msg.gas).value(var7)(memory[var6:var6 + var5]);
+        var3 = !temp1;
+    
+        if (!var3) { return; }
+    
+        var temp2 = returndata.length;
+        memory[0x00:0x00 + temp2] = returndata[0x00:0x00 + temp2];
+        revert(memory[0x00:0x00 + returndata.length]);
     }
     
-    function func_0378() returns (var r0) {
+    function func_0361() returns (var r0) {
         var var0 = 0x00;
         var var1 = var0;
-        var var2 = 0x0383;
-        var2 = func_038A();
+        var var2 = 0x036c;
+        var2 = func_0373();
         return storage[var2];
     }
     
-    function func_038A() returns (var r0) {
+    function func_0373() returns (var r0) {
         var var0 = 0x00;
         var var1 = var0;
         var temp0 = memory[0x40:0x60] + 0x20;
@@ -244,14 +243,14 @@ contract Contract {
         return keccak256(memory[temp1 + 0x20:temp1 + 0x20 + memory[temp1:temp1 + 0x20]]);
     }
     
-    function func_03E1(var arg0, var arg1) returns (var r0) {
+    function func_03CA(var arg0, var arg1) returns (var r0) {
         var var0 = 0x00;
     
         if (arg0 - arg1 i>= 0x20) { return msg.data[arg1:arg1 + 0x20]; }
         else { revert(memory[0x00:0x00]); }
     }
     
-    function func_03FA(var arg0, var arg1) returns (var r0, var arg0) {
+    function func_03E3(var arg0, var arg1) returns (var r0, var arg0) {
         var var0 = 0x00;
         var var1 = var0;
     
@@ -263,7 +262,7 @@ contract Contract {
         return r0, arg0;
     }
     
-    function func_041C(var arg0, var arg1) returns (var r0) {
+    function func_0405(var arg0, var arg1) returns (var r0) {
         var var0 = 0x00;
     
         if (arg0 - arg1 i< 0x20) { revert(memory[0x00:0x00]); }
@@ -275,7 +274,7 @@ contract Contract {
         else { revert(memory[0x00:0x00]); }
     }
     
-    function func_044C(var arg0, var arg1) returns (var r0) {
+    function func_0435(var arg0, var arg1) returns (var r0) {
         var var0 = 0x00;
     
         if (arg0) { return arg1 / arg0; }
@@ -285,17 +284,18 @@ contract Contract {
         revert(memory[0x00:0x24]);
     }
     
-    function func_046E(var arg0, var arg1) returns (var r0) {
-        var var0 = 0x00;
+    function func_0457(var arg0, var arg1) returns (var r0) {
+        var temp0 = arg1;
+        var var0 = arg0 + temp0;
     
-        if (arg1 <= ~arg0) { return arg1 + arg0; }
+        if (temp0 <= var0) { return var0; }
     
         memory[0x00:0x20] = 0x4e487b71 << 0xe0;
         memory[0x04:0x24] = 0x11;
         revert(memory[0x00:0x24]);
     }
     
-    function func_0494(var arg0, var arg1) returns (var r0) {
+    function func_047E(var arg0, var arg1) returns (var r0) {
         var var0 = 0x00;
         var var1 = 0x20;
         memory[arg1:arg1 + 0x20] = var1;
@@ -310,10 +310,10 @@ contract Contract {
             var temp6 = var4 & 0x7f;
             var4 = temp6;
         
-            if (var6 != (var4 < var1)) { goto label_04D4; }
-            else { goto label_04C1; }
-        } else if (var6 != (var4 < var1)) {
-        label_04D4:
+            if (var6 - (var4 < var1)) { goto label_04BD; }
+            else { goto label_04AA; }
+        } else if (var6 - (var4 < var1)) {
+        label_04BD:
             var temp1 = var1 + arg1;
             memory[temp1:temp1 + 0x20] = var4;
             var var7 = temp1 + 0x20;
@@ -322,9 +322,9 @@ contract Contract {
             if (!var8) {
                 var temp2 = var7;
                 memory[temp2:temp2 + 0x20] = var3 & ~0xff;
-                var2 = temp2 + var1;
+                var2 = temp2 + (!!var4 << 0x05);
             
-            label_052D:
+            label_051B:
                 return var2;
             } else if (var8 == 0x01) {
                 memory[0x00:0x20] = arg0;
@@ -332,35 +332,28 @@ contract Contract {
                 var var10 = 0x00;
             
                 if (var10 >= var4) {
-                label_0527:
+                label_0515:
                     var2 = var7 + var10;
-                    goto label_052D;
+                    goto label_051B;
                 } else {
-                label_0517:
+                label_0505:
                     var temp3 = var9;
                     var temp4 = var10;
                     memory[temp4 + var7:temp4 + var7 + 0x20] = storage[temp3];
                     var9 = var5 + temp3;
                     var10 = var1 + temp4;
                 
-                    if (var10 >= var4) { goto label_0527; }
-                    else { goto label_0517; }
+                    if (var10 >= var4) { goto label_0515; }
+                    else { goto label_0505; }
                 }
-            } else { goto label_052D; }
+            } else { goto label_051B; }
         } else {
-        label_04C1:
+        label_04AA:
             var temp5 = var2;
             memory[temp5:temp5 + 0x20] = 0x4e487b71 << 0xe0;
             memory[0x04:0x24] = 0x22;
             revert(memory[temp5:temp5 + 0x24]);
         }
-    }
-    
-    function func_053C(var arg0, var arg1) returns (var r0) {
-        var var0 = 0x00;
-    
-        if (arg0 - arg1 i>= 0x20) { return memory[arg1:arg1 + 0x20]; }
-        else { revert(memory[0x00:0x00]); }
     }
 }
 

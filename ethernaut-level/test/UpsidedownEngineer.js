@@ -90,7 +90,7 @@ describe("UpsidedownEngineer contract", function () {
         const storage_slot = ethers.utils.solidityKeccak256(["bytes"], [s1]);
         const a = await ethers.provider.getStorageAt(contract.address, storage_slot);
 
-        await expect(contract.solve_108B1F57E(a, 0)).to.emit(contract, "Hint").withArgs("Try to find out what storage slot the solution is stored in");
+        await expect(contract.solve_108B1F57E(a, 0)).to.emit(contract, "Hint").withArgs("You're so close! What does the function with selector 0x10000001 do?");
     })
 
     it("solve_108B1F57E with improper b value should not update owner", async function () {

@@ -1,11 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-
-interface IUpsidedownEngineerFactory {
-    function hint() external returns(bytes32);
-}
-
+import "./IUpsidedownEngineerFactory.sol";
 
 /// @title Bytecode level for Ethernaut
 /// @author Steven E. Thornton
@@ -18,6 +14,7 @@ contract UpsidedownEngineer {
     address private factory;
 
     string private hint_3;
+    string private hint_4;
 
     /// EVENTS
     event Hint(string hint);
@@ -32,13 +29,15 @@ contract UpsidedownEngineer {
         // The a value is set to the hash of the block timestamp so it is somewhat random
         set_a(uint256(keccak256(abi.encodePacked(block.timestamp))));
 
+        // Hints that are emitted with Hint events in the solve_108B1F57E method
         hint_3 = "Try to find out what storage slot the solution is stored in";
+        hint_4 = "You're so close! What does the function with selector 0x10000001 do?";
     }
 
     /// PUBLIC FUNCTIONS
 
     /// @notice Allows the owner of the contract to set a new owner. If this function is called by
-    /// anyone except the current owner, the contract will self destruct.
+    /// anyone except the current owner the call will revert.
     /// @param _newOwner The address of the new owner
     function setOwner(address _newOwner) public {
         if (msg.sender != owner) {
@@ -71,6 +70,8 @@ contract UpsidedownEngineer {
         }
     }
 
+    /// @notice A decoy function that will not set ownership. The hint function in the
+    /// UpsidedownEngineerFactory contract will always revert.
     function claimOwnership() external {
         owner = msg.sender;
         IUpsidedownEngineerFactory(factory).hint();
@@ -78,7 +79,7 @@ contract UpsidedownEngineer {
 
 
     /// @notice Calling this function with the correct input will set the owner to msg.sender.
-    /// Calling this function with the incorrect input will cause the contract to self destruct.
+    /// Calling this function with the incorrect input will revert.
     /// @param _a Value of `a` from the contract
     /// @param _b Square-root of msg.sender address 
     /// @dev This function has function selector: 0x12345678
@@ -88,7 +89,7 @@ contract UpsidedownEngineer {
             if (_b == sqrt) {
                 owner = msg.sender;
             } else {
-                emit Hint(hint_3);
+                emit Hint(hint_4);
             }
         } else {
             emit Hint(hint_3);
@@ -106,8 +107,8 @@ contract UpsidedownEngineer {
         }
     }
 
-    /// @notice Internal function that sets the `a` value at slot keccak256(abi.encode("The Solution is 42"))
-    /// @param a Valut to set `a` to
+    /// @notice Sets the `a` value at slot keccak256(abi.encode("The Solution is 42"))
+    /// @param a Value to set `a` to
     function set_a(uint256 a) private {
         bytes32 slot = get_a_slot();
         assembly {
