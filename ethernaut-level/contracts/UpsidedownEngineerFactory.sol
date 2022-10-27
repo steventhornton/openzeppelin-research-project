@@ -5,9 +5,7 @@ contract UpsidedownEngineerFactory {
 
     event DeployInstance(address indexed);
 
-    constructor() {
-        // Set the hint
-    }
+    constructor() {}
 
     fallback() external payable {}
     receive() external payable {}
