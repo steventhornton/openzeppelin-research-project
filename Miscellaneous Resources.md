@@ -64,3 +64,6 @@ https://github.com/Jon-Becker/heimdall-rs
 
   - https://dl.acm.org/doi/10.1145/3527321
 
+- Grech, N., Brent, L., Scholz, B., & Smaragdakis, Y. (2019, May). Gigahorse: thorough, declarative decompilation of smart contracts. In *2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)* (pp. 1176-1186). IEEE.
+  - https://yanniss.github.io/gigahorse-icse19.pdf
+  - https://zenodo.org/record/2578692
